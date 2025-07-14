@@ -25,3 +25,9 @@
         border: 2px solid rgb(25, 24, 24);
         border-radius: 5px;
 }
+
+@media (max-width: 428px) {
+        .products-bar-contents a {
+                font-size: 12px;
+        }
+}

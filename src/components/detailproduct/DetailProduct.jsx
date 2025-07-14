@@ -66,7 +66,13 @@ function DetailProduct() {
   const category = product ? product.category : "";
   
     const cart = () => {
-    alert(`has been added to your cart!`);
+    alert(`${product.title}has been added to your cart!`);
+  }
+
+  const buyNow = (rate) => {
+    alert(`You are buying ${product.title}! `);
+    console.log(`${rate} was clicked`);
+    
   }
 
   return (
@@ -110,7 +116,7 @@ function DetailProduct() {
 
               <div className="buy-buttons">
                 <button onClick={() => cart()}> <ShoppingBag /> Add to bag</button>
-                <button> <ShoppingCart /> Buy Now</button>
+                <button onClick={() => buyNow(product.price)}> <ShoppingCart /> Buy Now</button>
               </div>
             </div>
             <div className="cart-content">
