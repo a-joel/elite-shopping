@@ -6,7 +6,7 @@ import Footer from "./components/footer/Footer";
 import ProductCard from "./components/productcard/ProductCard";
 import DetailProduct from "./components/detailproduct/DetailProduct";
 import ProductsBar from "./components/productsbar/ProductsBar";
-
+import "./App.css"; // Import your main CSS file
 function App() {
   return (
     <Routes>
