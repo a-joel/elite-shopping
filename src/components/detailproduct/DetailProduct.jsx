@@ -4,22 +4,13 @@ import { useParams } from "react-router-dom";
 import "./DetailProduct.css";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
-import {  Heart, ShoppingBag, ShoppingCart } from "lucide-react";
+import { Heart, ShoppingBag, ShoppingCart } from "lucide-react";
 import SimilarProduct from "../similarproducts/SimilarProduct";
 import Review from "../reviews/Review";
 const sbi = "SBI";
 const axis = "Axis";
 const icici = "ICICI";
 const size = ["S", "M", "L", "XL", "XXL"];
-const CartButton = () => {
-  return (
-    <>
-      <div className="cart-button">
-        <button> <Heart />Add to cart</button>
-      </div>
-    </>
-  );
-};
 
 const BankDiscount = ({ bank }) => {
   return (
@@ -63,17 +54,30 @@ function DetailProduct() {
       .catch((err) => console.log(`The Error ${err} was Occured`));
   }, [id]);
 
+  const CartButton = () => {
+    return (
+      <>
+        <div className="cart-button">
+          <button onClick={() => cart()}>
+            {" "}
+            <Heart />
+            Add to cart
+          </button>
+        </div>
+      </>
+    );
+  };
+
   const category = product ? product.category : "";
-  
-    const cart = () => {
+
+  const cart = () => {
     alert(`${product.title}has been added to your cart!`);
-  }
+  };
 
   const buyNow = (rate) => {
     alert(`You are buying ${product.title}! `);
     console.log(`${rate} was clicked`);
-    
-  }
+  };
 
   return (
     <div>
@@ -89,7 +93,7 @@ function DetailProduct() {
             <div className="details">
               <div className="name-rate">
                 <h2>{product.title}</h2>
-                <p className="rating">Rating {product.rating.rate} Stars</p>
+                <p className="ratingg">Rating {product.rating.rate} Stars</p>
               </div>
               <hr />
 
@@ -115,8 +119,14 @@ function DetailProduct() {
               </div>
 
               <div className="buy-buttons">
-                <button onClick={() => cart()}> <ShoppingBag /> Add to bag</button>
-                <button onClick={() => buyNow(product.price)}> <ShoppingCart /> Buy Now</button>
+                <button onClick={() => cart()}>
+                  {" "}
+                  <ShoppingBag /> Add to bag
+                </button>
+                <button onClick={() => buyNow(product.price)}>
+                  {" "}
+                  <ShoppingCart /> Buy Now
+                </button>
               </div>
             </div>
             <div className="cart-content">
