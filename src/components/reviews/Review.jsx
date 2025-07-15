@@ -96,7 +96,7 @@ const productReviews = [
 
 function Review() {
   return (
-    <div className="reviews-container">
+    <div className="reviews-container" id='reviews'>
       <h2>Product Reviews</h2>
       <div className="reviews-grid">
         {productReviews.map((review) => (
